@@ -800,7 +800,7 @@ foo := a b c
 bar := $(subst $(space), $(comma) , $(foo))
 
 all: 
-	# Output is ", a , b , c". Notice the spaces introduced
+	# Output is "a , b , c". Notice the spaces introduced
 	@echo $(bar)
 
 ```
@@ -884,7 +884,7 @@ all:
 
 # Other Features
 ## Include Makefiles
-The include directive tells make to read one or more other makefiles. It's a line in the makefile makefile that looks like this:
+The include directive tells make to read one or more other makefiles. It's a line in the makefile that looks like this:
 ```makefile
 include filenames...
 ```
@@ -915,6 +915,7 @@ clean:
 	rm -f some_binary
 
 ```
+
 ## Multiline
 The backslash ("\\") character gives us the ability to use multiple lines when the commands are too long
 ```makefile
@@ -924,13 +925,17 @@ some_file:
 ```
 
 ## .phony
-Adding `.PHONY` to a target will prevent make from confusing the phony target with a file name. In this example, if the file `clean` is created, make clean will still be run. `.PHONY` is great to use, but I'll skip it in the rest of the examples for simplicity.
+
+See [GNU Manual - phony targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html) for detail.
+
 ```makefile
 some_file:
 	touch some_file
 	touch clean
  
 .PHONY: clean
+# without the line above, if there's a file called clean in the 
+# directory, make clean will not work as expected.
 clean:
 	rm -f some_file
 	rm -f clean

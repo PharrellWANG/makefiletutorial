@@ -66,8 +66,67 @@
 # 	@echo "this line will not be printed"
 # 	echo "this line will "
 
-one:
-	-false
-	touch one
-clean:
-	rm -f one
+# one:
+# 	-false
+# 	touch one
+# clean:
+# 	rm -f one
+
+# with_spaces = hello    # with_spaces has many spaces after "hello"
+# after = $(with_spaces)there
+
+# nullstring =
+# space = $(nullstring) # Make a variable with a single space.
+
+# all: 
+# 	echo "$(after)"
+# 	echo start"$(space)"end
+# 	echo ${undefined}
+
+# foo := start 
+# foo += more
+
+# all: 
+# 	echo $(foo)
+
+# # Overrides command line arguments
+# override option_one = did_override
+# # Does not override command line arguments
+# option_two = not_override
+# all: 
+# 	echo $(option_one)
+# 	echo $(option_two)
+
+# bar := ${subst not,totally, "I am not superman"}
+# all: 
+# 	@echo $(bar)
+
+# comma := ,
+# empty:=
+# space := $(empty) $(empty)
+# foo := a b c
+# bar := $(subst $(space), $(comma) ,$(foo))
+
+# all: 
+# 	@echo $(bar)
+
+
+# foo := a.o b.o l.a c.o
+# one := $(patsubst %.o,%.c,$(foo))
+# # This is a shorthand for the above
+# two := $(foo:%.o=%.c)
+# # This is the suffix-only shorthand, and is also equivalent to the above.
+# three := $(foo:.o=.c)
+
+# all:
+# 	echo $(one)
+# 	echo $(two)
+# 	echo $(three)
+
+foo := $(if this-is-not-empty,then!,else!)
+empty :=
+bar := $(if $(empty),then!,else!)
+
+all:
+	@echo $(foo)
+	@echo $(bar)

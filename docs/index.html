@@ -396,6 +396,12 @@
 </ol>
 
 <ol>
+    <li><a class="toc-item" href="#multiline">Multiline</a>
+    </li>
+    
+</ol>
+
+<ol>
     <li><a class="toc-item" href="#-phony">.phony</a>
     </li>
     
@@ -1073,7 +1079,7 @@ foo := a b c
 bar := <span class="hljs-variable">$(<span class="hljs-built_in">subst</span> <span class="hljs-variable">$(space)</span>, <span class="hljs-variable">$(comma)</span> , <span class="hljs-variable">$(foo)</span>)</span>
 
 <span class="hljs-section">all: </span>
-    <span class="hljs-comment"># Output is ", a , b , c". Notice the spaces introduced</span>
+    <span class="hljs-comment"># Output is "a , b , c". Notice the spaces introduced</span>
     @echo <span class="hljs-variable">$(bar)</span></code></pre>
 
 <!-- # 8.2, 8.3, 8.9 TODO do something about the fns   
@@ -1136,7 +1142,7 @@ bar := <span class="hljs-variable">$(<span class="hljs-built_in">if</span> <span
 
 <h1 id="other-features">Other Features</h1>
 <h2 id="include-makefiles">Include Makefiles</h2>
-<p>The include directive tells make to read one or more other makefiles. It&#39;s a line in the makefile makefile that looks like this:</p>
+<p>The include directive tells make to read one or more other makefiles. It&#39;s a line in the makefile that looks like this:</p>
 <pre><code class="hljs makefile"><span class="hljs-keyword">include</span> filenames...</code></pre>
 
 <p>This is particularly useful when you use compiler flags like <code>-M</code> that create Makefiles based on the source. For example, if some c files includes a header, that header will be added to a Makefile that&#39;s written by gcc. I talk about this more in the <a href="#makefile-cookbook">Makefile Cookbook</a></p>
@@ -1157,19 +1163,22 @@ bar := <span class="hljs-variable">$(<span class="hljs-built_in">if</span> <span
 <span class="hljs-section">clean:</span>
     rm -rf ../headers
     rm -f some_binary</code></pre>
-## Multiline
-The backslash ("\\") character gives us the ability to use multiple lines when the commands are too long
+
+<h2 id="multiline">Multiline</h2>
+<p>The backslash (&quot;\&quot;) character gives us the ability to use multiple lines when the commands are too long</p>
 <pre><code class="hljs makefile"><span class="hljs-section">some_file: </span>
     echo This line is too long, so \
         it is broken up into multiple lines</code></pre>
 
 <h2 id="-phony">.phony</h2>
-<p>Adding <code>.PHONY</code> to a target will prevent make from confusing the phony target with a file name. In this example, if the file <code>clean</code> is created, make clean will still be run. <code>.PHONY</code> is great to use, but I&#39;ll skip it in the rest of the examples for simplicity.</p>
+<p>See <a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">GNU Manual - phony targets</a> for detail.</p>
 <pre><code class="hljs makefile"><span class="hljs-section">some_file:</span>
     touch some_file
     touch clean
 
 <span class="hljs-meta"><span class="hljs-meta-keyword">.PHONY</span>: clean</span>
+<span class="hljs-comment"># without the line above, if there's a file called clean in the </span>
+<span class="hljs-comment"># directory, make clean will not work as expected.</span>
 <span class="hljs-section">clean:</span>
     rm -f some_file
     rm -f clean</code></pre>
