@@ -37,14 +37,14 @@
                     <a href='#makefile-cookbook'>Makefile Cookbook</a>
                 </div>
                 <div class='social-buttons'>
-                    <a href='https://github.com/PharrellWANG/makefiletutorial'><img src='/makefiletutorial/makefiletutorial/assets/github.png' /></a>
-                    <!-- <a href='https://twitter.com/chaselambda'><img src='/makefiletutorial/makefiletutorial/assets/twitter.png' /></a> -->
+                    <a href='https://github.com/PharrellWANG/makefiletutorial'><img src='/makefiletutorial/assets/github.png' /></a>
+                    <!-- <a href='https://twitter.com/chaselambda'><img src='/makefiletutorial/assets/twitter.png' /></a> -->
                     <span class='github-stars'><a class="github-button"
                             href="https://github.com/PharrellWANG/makefiletutorial" data-icon="octicon-star"
                             data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></span>
                 </div>
             </div>
-            <img class='title-pic' src='/makefiletutorial/makefiletutorial/assets/pie_ingredients.png' />
+            <img class='title-pic' src='/makefiletutorial/assets/pie_ingredients.png' />
         </div>
     </div>
     <div class='body-wrapper'>
@@ -52,8 +52,8 @@
             <div class="sidebar-header">
                 <div class='sidebar-title'><a href='#top'>Makefile Tutorial</a></div>
                 <div class='social-buttons'>
-                    <a href='https://github.com/PharrellWANG/makefiletutorial'><img src='/makefiletutorial/makefiletutorial/assets/github.png' /></a>
-                    <!-- <a href='https://twitter.com/chaselambda'><img src='/makefiletutorial/makefiletutorial/assets/twitter.png' /></a> -->
+                    <a href='https://github.com/PharrellWANG/makefiletutorial'><img src='/makefiletutorial/assets/github.png' /></a>
+                    <!-- <a href='https://twitter.com/chaselambda'><img src='/makefiletutorial/assets/twitter.png' /></a> -->
                     <span class='github-stars'><a class="github-button"
                             href="https://github.com/PharrellWANG/makefiletutorial" data-icon="octicon-star"
                             data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a></span>
@@ -431,7 +431,7 @@
 <p>Makefiles are used to help decide which parts of a large program need to be recompiled. In the vast majority of cases, C or C++ files are compiled. Other languages typically have their own tools that serve a similar purpose as Make. It can be used beyond programs too, when you need a series of instructions to run depending on what files have changed. This tutorial will focus on the C/C++ compilation use case.</p>
 <p>Here&#39;s an example dependency graph that you might build with Make. If any file&#39;s dependencies changes, then the file will get recompiled:</p>
 <div class="center">
-<img src="/makefiletutorial/makefiletutorial/assets/dependency_graph.png">
+<img src="/makefiletutorial/assets/dependency_graph.png">
 </div>
 
 <h2 id="what-alternatives-are-there-to-make-">What alternatives are there to Make?</h2>
@@ -729,7 +729,7 @@ src_files = foo.raw bar.c lose.c
 CFLAGS = -g <span class="hljs-comment"># Flag for implicit rules. Turn on debug info</span>
 
 <span class="hljs-comment"># Implicit rule #1: blah is built via the C linker implicit rule</span>
-<span class="hljs-comment"># Implicit rule #2:  blah.o is built via the C++ compilation implicit rule, because blah.cpp exists</span>
+<span class="hljs-comment"># Implicit rule #2:  blah.o is built via the C compilation implicit rule, because blah.c exists</span>
 <span class="hljs-section">blah: blah.o</span>
 
 <span class="hljs-section">blah.c:</span>
@@ -776,8 +776,8 @@ CFLAGS = -g <span class="hljs-comment"># Flag for implicit rules. Turn on debug 
 <!--  (Section 5.1) -->
 <p>Add an <code>@</code> before a command to stop it from being printed<br>You can also run make with <code>-s</code> to add an <code>@</code> before each line  </p>
 <pre><code class="hljs makefile"><span class="hljs-section">all: </span>
-    @echo <span class="hljs-string">"This make line will not be printed"</span>
-    echo <span class="hljs-string">"But this will"</span></code></pre>
+    @echo <span class="hljs-string">"You will see this msg once."</span>
+    echo <span class="hljs-string">"You will see this msg twice."</span></code></pre>
 
 <h2 id="command-execution">Command Execution</h2>
 <!--  (Section 5.2) -->

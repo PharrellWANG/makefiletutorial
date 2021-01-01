@@ -21,7 +21,7 @@ Makefiles are used to help decide which parts of a large program need to be reco
 
 Here's an example dependency graph that you might build with Make. If any file's dependencies changes, then the file will get recompiled:
 <div class='center'>
-<img src="/makefiletutorial/makefiletutorial/assets/dependency_graph.png"/>
+<img src="/makefiletutorial/assets/dependency_graph.png"/>
 </div>
 
 ## What alternatives are there to Make?
@@ -374,7 +374,7 @@ CC = gcc # Flag for implicit rules
 CFLAGS = -g # Flag for implicit rules. Turn on debug info
 
 # Implicit rule #1: blah is built via the C linker implicit rule
-# Implicit rule #2:  blah.o is built via the C++ compilation implicit rule, because blah.cpp exists
+# Implicit rule #2:  blah.o is built via the C compilation implicit rule, because blah.c exists
 blah: blah.o
 
 blah.c:
@@ -431,8 +431,8 @@ Add an `@` before a command to stop it from being printed
 You can also run make with `-s` to add an `@` before each line  
 ```makefile
 all: 
-	@echo "This make line will not be printed"
-	echo "But this will"
+	@echo "You will see this msg once."
+	echo "You will see this msg twice."
 ```
 
 ## Command Execution
