@@ -21,7 +21,7 @@ Makefiles are used to help decide which parts of a large program need to be reco
 
 Here's an example dependency graph that you might build with Make. If any file's dependencies changes, then the file will get recompiled:
 <div class='center'>
-<img src="/assets/dependency_graph.png"/>
+<img src="/makefiletutorial/assets/dependency_graph.png"/>
 </div>
 
 ## What alternatives are there to Make?
