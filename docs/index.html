@@ -627,6 +627,10 @@ thing_right := <span class="hljs-variable">$(<span class="hljs-built_in">wildcar
     <span class="hljs-comment"># Outputs all prerequisites</span>
     echo <span class="hljs-variable">$^</span>
 
+    <span class="hljs-comment"># Outputs only the first prerequisite</span>
+    echo <span class="hljs-variable">$&lt;</span>
+
+
     touch hey
 
 <span class="hljs-section">one:</span>
@@ -638,6 +642,7 @@ thing_right := <span class="hljs-variable">$(<span class="hljs-built_in">wildcar
 <span class="hljs-section">clean:</span>
     rm -f hey one two</code></pre>
 
+<p>To see all the automatic variables, check <a href="http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables">GNU Manual Page for Automatic Variables</a></p>
 <h1 id="fancy-rules">Fancy Rules</h1>
 <h2 id="static-pattern-rules">Static Pattern Rules</h2>
 <!--  (Section 4.10) -->

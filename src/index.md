@@ -3,7 +3,7 @@ title: Makefile Tutorial By Example
 draft: false
 collection: Get Started
 layout: layout.ejs
-date: 2016-12-24
+date: 2021-01-01
 autotoc: true
 ---
 
@@ -259,6 +259,10 @@ hey: one two
 	# Outputs all prerequisites
 	echo $^
 
+	# Outputs only the first prerequisite
+	echo $<
+
+
 	touch hey
 
 one:
@@ -271,6 +275,8 @@ clean:
 	rm -f hey one two
 
 ```
+
+To see all the automatic variables, check [GNU Manual Page for Automatic Variables](http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)
 
 # Fancy Rules
 ## Static Pattern Rules
